@@ -1,2 +1,1 @@
-web:
-	bin/entrypoint
+web: bin/entrypoint
