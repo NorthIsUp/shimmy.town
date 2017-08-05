@@ -1,0 +1,27 @@
+{
+  "name": "shimmy.town",
+  "repository": "https://github.com/NorthIsUp/shimmy.town",
+  "env": {},
+  "formation": {},
+  "addons": [
+    "heroku-redis",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-python"
+    }
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "./bin/test-setup",
+        "test": "./bin/test"
+      },
+      "addons": [
+        "heroku-redis",
+        "heroku-postgresql"
+      ]
+    }
+  }
+}
