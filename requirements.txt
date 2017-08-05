@@ -1,3 +1,4 @@
 django-danceschool
 gunicorn
 dj-database-url
+psycopg2
