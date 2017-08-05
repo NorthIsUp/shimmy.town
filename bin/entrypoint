@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+PROJECT_ROOT=$(realpath $(dirname $0)/..)
+
+gunicorn school.wsgi --pythonpath ${PROJECT_ROOT}/shimmytown --log-file -

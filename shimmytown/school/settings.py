@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # This line imports a large number of defaults, so that
 # they do not need to be specified here directly.
@@ -36,7 +37,7 @@ DEBUG = True
 
 # SECURITY WARNING: ALLOWED_HOSTS must be updated for production
 # to permit public access of the site.
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','testserver']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
 
 
 # Application definition
@@ -158,6 +159,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
