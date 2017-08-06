@@ -17,6 +17,7 @@ import dj_database_url
 # they do not need to be specified here directly.
 # You may always override these defaults below.
 from danceschool.default_settings import *
+from school.core.settings.env import *
 
 # This line is required by Django CMS to determine default URLs
 # for pages.
@@ -31,12 +32,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
 
 # SECURITY WARNING: ALLOWED_HOSTS must be updated for production
 # to permit public access of the site.
