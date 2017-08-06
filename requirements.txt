@@ -1,10 +1,14 @@
-django-danceschool
+-e git+https://github.com/NorthIsUp/django-danceschool.git@fix-28#egg=django-danceschool
 gunicorn
 dj-database-url
 psycopg2
 whitenoise
 django-dotenv
 sendgrid-django
+django-pipeline
+django-storages
+libsass
+path.py
 
 isort
 autoflake

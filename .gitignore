@@ -1,5 +1,6 @@
 
 # Created by https://www.gitignore.io/api/python,django,flask,intellij,pycharm,sublimetext,vim,emacs,node,bower
+shimmytown/static
 
 ### Bower ###
 bower_components
