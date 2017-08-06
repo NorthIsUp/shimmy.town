@@ -20,6 +20,9 @@ from danceschool.default_settings import *
 
 # This line is required by Django CMS to determine default URLs
 # for pages.
+from school.core.settings.monkey import patch_all
+
+
 SITE_ID = 1
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -225,3 +228,10 @@ STATIC_ROOT = BASE_DIR + '/static'
 # https://warehouse.python.org/project/whitenoise/
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+###############################################
+
+
+patch_all(globals())
