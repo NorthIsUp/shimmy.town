@@ -2,3 +2,4 @@ django-danceschool
 gunicorn
 dj-database-url
 psycopg2
+whitenoise
