@@ -18,8 +18,9 @@ def patch_pipeline(g):
         'STYLESHEETS': {
             'app': {
                 'source_filenames': (
-                    'scss/app.scss',
-                    'css/app.css',
+                    'fonts/*',
+                    'scss/*.scss',
+                    'css/*.css',
                 ),
                 'output_filename': 'css/app.css',
             },
