@@ -42,7 +42,7 @@ ALLOWED_HOSTS = [
     'shimmytown.com',
 ]
 
-if DEBUG:
+if DEBUG or LOCAL:
     ALLOWED_HOSTS += [
         '127.0.0.1',
         'localhost',
@@ -121,6 +121,11 @@ MIDDLEWARE = [
     # This middleware is required by Django CMS for intelligent reloading on updates.
     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -133,10 +138,6 @@ MIDDLEWARE = [
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'school.urls'
