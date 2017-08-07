@@ -1,4 +1,4 @@
--e git+https://github.com/NorthIsUp/django-danceschool.git@fix-28#egg=django-danceschool
+django-danceschool
 gunicorn
 dj-database-url
 psycopg2
@@ -9,6 +9,6 @@ django-pipeline
 django-storages
 libsass
 path.py
-
 isort
 autoflake
+dj-static
