@@ -1,14 +1,15 @@
-django-danceschool
-gunicorn
+-e git+https://github.com/leetucker/django-danceschool.git#egg=django-danceschool
+
+autoflake
 dj-database-url
-psycopg2
-whitenoise
+django-danceschool
 django-dotenv
-sendgrid-django
 django-pipeline
 django-storages
+gunicorn
+isort
 libsass
 path.py
-isort
-autoflake
-dj-static
+psycopg2
+sendgrid-django
+whitenoise
