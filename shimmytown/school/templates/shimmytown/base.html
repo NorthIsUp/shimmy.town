@@ -20,8 +20,12 @@
     <title>{% block title %}{% page_attribute "page_title" %}{% endblock %}</title>
 
     {# Javascript Includes: Jquery and bootstrap go at the top to avoid issues with included scripts #}
-    <script type="text/javascript" src="{% static 'jquery/jquery-2.2.4.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!--<script type="text/javascript" src="{% static 'jquery/jquery-2.2.4.min.js' %}"></script>-->
+    <!--<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>-->
 
     {% block extra_head %}
 
