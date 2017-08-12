@@ -1,0 +1,18 @@
+{% extends "core/base/base_individual_event.html" %}
+{% load danceschool_tags %}
+
+{% block title %}
+	{{ block.super }} - Shimmytown
+{% endblock %}
+
+{% block meta_title %}
+	{{ block.super }} - Shimmytown
+{% endblock %}
+
+{% block meta_description %}
+	Join Shimmytown for our event, {{ eventset.0.name }}, held {{ eventset.0.eventoccurrence_set.all.first.startTime|date:'l, F d, h:i A' }} - {{ eventset.0.eventoccurrence_set.all.first.endTime|date:'h:i A' }} at {{ eventset.0.location.name %}.
+{% endblock %}
+
+{% block facebook_og_description %}
+	Join Shimmytown for our event, {{ eventset.0.name }}, held {{ eventset.0.eventoccurrence_set.all.first.startTime|date:'l, F d, h:i A' }} - {{ eventset.0.eventoccurrence_set.all.first.endTime|date:'h:i A' }} at {{ eventset.0.location.name %}.
+{% endblock %}

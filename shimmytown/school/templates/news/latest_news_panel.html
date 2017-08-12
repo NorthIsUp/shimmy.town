@@ -1,0 +1,42 @@
+{% load sekizai_tags %}
+
+<div class="post panel panel-default">
+<div class= "panel-heading">
+<h2>Latest News&nbsp;&nbsp;
+	<div class="pull-right">
+		{% if 'news.add_newsitem' in perms or user.is_superuser %}
+		<a class="edit-link btn btn-default btn-xs" href="{% url 'admin:news_newsitem_add' %}">Post News Item</a>&nbsp;
+		{% endif %}
+		<a class='get-more btn btn-default btn-xs' href="{% url 'news' %}">See More News&nbsp;&raquo;</span></a>
+	</div>
+</h2>
+</div>
+{% for news_item in newsitem_list %}
+	<div class="post-body panel-body">
+		<h3 class="news-item-title post-title">{{news_item.title}}</h3>
+		<a name="{{news_item.id}}"></a>
+		<p class="news-item-date">{{news_item.publicationDate|date:"M. j, Y"}}
+		<button class="btn btn-default btn-xs pull-right" type="button" data-toggle="collapse" data-target="#news-item-content-{{ news_item.id }}" aria-expanded="false" aria-controls="collapseExample" id="news-item-switch-{{ news_item.id }}">
+			Read More&nbsp;<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+		</button><br />
+		</p>
+		<div class="news-item-content post-body collapse" id="news-item-content-{{ news_item.id }}">
+			{{news_item.content|safe}}
+		</div>
+	</div>
+
+	{% addtoblock "js" %}
+		<script type="text/javascript">
+		$( document ).ready( function() {
+			$('#news-item-content-{{ news_item.id }}').on('shown.bs.collapse', function() {
+			  $('#news-item-switch-{{ news_item.id }}').html('Hide&nbsp;<span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>');
+			});
+			$('#news-item-content-{{ news_item.id }}').on('hidden.bs.collapse', function() {
+			  $('#news-item-switch-{{ news_item.id }}').html('Read More&nbsp;<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>');
+			});
+		});
+		</script>
+	{% endaddtoblock %}
+
+{% endfor %}
+</div>

@@ -1,5 +1,5 @@
--e git+https://github.com/leetucker/django-danceschool.git#egg=django-danceschool
-
+-e git+https://github.com/NorthIsUp/django-danceschool.git@fix-28#egg=django-danceschool
+# -e git+https://github.com/jazzband/django-pipeline.git#egg=django-pipeline
 autoflake
 dj-database-url
 django-danceschool
@@ -13,3 +13,5 @@ path.py
 psycopg2
 sendgrid-django
 whitenoise
+django-extensions
+django-debug-toolbar

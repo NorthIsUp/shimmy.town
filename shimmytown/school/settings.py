@@ -96,9 +96,14 @@ INSTALLED_APPS = [
     'treebeard',
     'djangocms_text_ckeditor',
     'djangocms_forms',
+
+    #############################
     # ## Typically, if you have a custom app for custom functionality,
     # ## it will be added here:
-    # '< my_custom_app >',
+    'school',
+    'vendor',
+    #############################
+
     # ## This is the core app of the django-danceschool project that
     # ## is required for all installations:
     'danceschool.core',
@@ -124,7 +129,7 @@ MIDDLEWARE = [
 
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -206,11 +211,11 @@ LANGUAGE_CODE = 'en'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'America/Los_Angeles'
 
-USE_I18N = True
+USE_I18N = False
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -224,7 +229,7 @@ STATIC_ROOT = BASE_DIR + '/static'
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 
@@ -232,3 +237,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 patch_all(globals())
+
+
+CMS_TEMPLATES += (
+    ('cms/register.html', 'Registration'),
+    ('cms/homepage.html', 'Homepage'),
+    ('cms/blh_frontpage.html', 'BLH Front Page Template'),
+)

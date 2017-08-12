@@ -1,0 +1,92 @@
+{% extends "fullwidth.html" %}
+{% load static sekizai_tags cms_tags %}
+
+{% block extra_head %}
+
+{% addtoblock "meta" %}
+<meta name="robots"
+      content="index, follow">
+{% endaddtoblock %}
+
+{# Fitvids code (to ensure Youtube videos always fit) #}
+{% addtoblock "js" %}
+<script type="text/javascript"
+        src="{% static 'fitvids/jquery.fitvids.js' %}"></script>
+{% endaddtoblock %}
+{% addtoblock "js" %}
+<script type="text/javascript">
+    $(".content-col").fitVids();
+</script>
+{% endaddtoblock %}
+
+{% endblock %}
+
+{% block header %}
+<header>
+  <div class="intro-text">
+    <div class="intro-lead-in">Welcome To Our Studio!</div>
+    <div class="intro-heading">It's Nice To Meet You</div>
+    <a href="#services"
+       class="page-scroll btn btn-xl">Tell Me More</a>
+  </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-11 content-col">
+    {% placeholder "content" %}
+  </div>
+</div>
+
+
+<section class="page-section bg-faded"
+         id="services">
+  <div class="container-fluid">
+    <div class="wow fadeIn text-center"
+         style="visibility: visible; animation-name: fadeIn;">
+      <h1>This is what I do</h1>
+      <p class="mb-0">Vitality is the perfect theme for a freelance professional or an agency.</p>
+    </div>
+    <hr class="colored">
+    <div class="row text-center fg-white">
+      <div class="pad bg-brand-blue col-lg-3 col-md-6">
+        <div class="fadeIn"
+             data-wow-delay=".2s"
+             style="height : 180px; visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+          <i class="fa fa-pencil fa-4x"></i>
+          <h3>Lessons</h3>
+          <p class="mb-0">Group lessons in lindy hop, solo jazz, and other swing dances.</p>
+        </div>
+      </div>
+      <div class="pad bg-brand-dark-purple col-lg-3 col-md-6">
+        <div class="fadeIn"
+             data-wow-delay=".4s"
+             style="height : 180px; visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
+          <i class="fa fa-smile-o fa-4x"></i>
+          <h3>Dance Party</h3>
+          <p class="mb-0">Dance to jazz every Monday night at the Verdi Club.</p>
+        </div>
+      </div>
+      <div class="pad bg-brand-yellow col-lg-3 col-md-6">
+        <div class="fadeIn"
+             data-wow-delay=".6s"
+             style="height : 180px; visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;">
+          <i class="fa fa-music fa-4x"></i>
+          <h3>Teams</h3>
+          <p class="mb-0">Train up to the top and join our competition teams.</p>
+        </div>
+      </div>
+      <div class="pad bg-brand-red col-lg-3 col-md-6">
+        <div class="fadeIn"
+             data-wow-delay=".8s"
+             style="height : 180px; visibility: visible; animation-delay: 0.8s; animation-name: fadeIn;">
+          <i class="fa fa-heart fa-4x"></i>
+          <h3>SWAG</h3>
+          <p class="mb-0">Fun stuff for dancers and instructors.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

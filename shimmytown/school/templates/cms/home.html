@@ -1,0 +1,135 @@
+{% extends "shimmytown/base.html" %}
+{% load cms_tags menu_tags sekizai_tags static %}
+
+{% block title %}
+  {% page_attribute "page_title" as page_title %}
+  {% if page_title %}
+    {{ page_title }} - Shimmytown: Lindy Hop and Swing Dance Instruction
+  {% else %}
+    Shimmytown: Lindy Hop and Swing Dance Instruction
+  {% endif %}
+{% endblock %}
+
+{% block meta_title %}
+  {% page_attribute "page_title" as page_title %}
+  {% if page_title %}
+    {{ page_title }} - Shimmytown: Lindy Hop and Swing Dance Instruction
+  {% else %}
+    Shimmytown: Lindy Hop and Swing Dance Instruction
+  {% endif %}
+{% endblock %}
+
+{% block meta_description %}
+  {% page_attribute "meta_description" as meta_description %}
+  {{ meta_description|default:"Shimmytown offers Lindy Hop, Swing Dance, Balboa, and Charleston classes in Boston, Massachusetts and the surrounding area, including Cambridge and Somerville. If you are new to swing dancing or a seasoned dancer, our experienced teachers can help you improve and introduce you to our local swing dance community. We are proud to have some of the most talented Lindy Hop dancers and teachers in Boston.  We focus on helping students improve through beginner, intermediate, and advanced classes as well as with practice sessions and performance groups." }}
+{% endblock %}
+
+{% block meta_keywords %}
+  lindy hop, lindy, lindyhop, swing dancing,
+  swing, swing dance, jitterbug, jive,
+  east coast swing, balboa, blues,
+  dance studio, collegiate shag,
+  West Coast Swing, dance class, dance lesson,
+  dance workshop, partner dancing,
+  massachusetts, ma, new england, boston,
+  aerials, airsteps, private lessons
+{% endblock %}
+
+{% block meta_copyright %}Copyright 2011-{% now "Y" %}, Shimmytown. All rights reserved.{% endblock %}
+
+{% block facebook_og_title %}Shimmytown{% endblock %}
+{% block facebook_og_description %}
+Shimmytown offers Lindy Hop, Swing Dance, Balboa, and Charleston classes in Boston, Massachusetts and the surrounding area, including Cambridge and Somerville. If you are new to swing dancing or a seasoned dancer, our experienced teachers can help you improve and introduce you to our local swing dance community. We are proud to have some of the most talented Lindy Hop dancers and teachers in Boston.  We focus on helping students improve through beginner, intermediate, and advanced classes as well as with practice sessions and performance groups.
+{% endblock %}
+{% block facebook_og_image %}{{ site }}static/images/blh_facebook_og_mariedgar.jpg{% endblock %}
+
+
+{% block extra_meta %}
+  {% addtoblock "meta" %}
+    <meta name="google-site-verification" content="G4skpb48AFzDZhxftMSuEGDwULkp494C6fVXErauEiM" />
+  {% endaddtoblock %}
+{% endblock %}
+
+
+{% block extra_css %}
+  {% addtoblock "css" %}
+    {# Google Font #}
+    <link href='https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700' rel='stylesheet' type='text/css' />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  {% endaddtoblock %}
+{% endblock %}
+
+
+{% block extra_js %}
+  {# Google Analytics Tracking Code #}
+  {% addtoblock "js" %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57918205-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  {% endaddtoblock %}
+
+  {# Facebook Pixel Code #}
+  {% addtoblock "js" %}
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '1714563765465399');
+      fbq('track', "PageView");
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1714563765465399&ev=PageView&noscript=1"/>
+    </noscript>
+  {% endaddtoblock %}
+
+  {# Fitvids code (to ensure Youtube videos always fit) #}
+  {% addtoblock "js" %}
+    <script type="text/javascript" src="{% static 'fitvids/jquery.fitvids.js' %}"></script>
+  {% endaddtoblock %}
+  {% addtoblock "js" %}
+    <script type="text/javascript">
+        $(".content-col").fitVids();
+    </script>
+  {% endaddtoblock %}
+{% endblock %}
+
+
+{% block body %}
+
+  <div class="container" id="wrapper">
+
+    {% block navbar %}
+        {% show_menu 0 100 100 100 "shimmytown/navbar.html" %}
+    {% endblock %}
+
+    {% block main %}
+
+        {% block content %}
+        <div class="row" id="main_row">
+          {# Default to a single column page #}
+          <div class="col-md-11 content-col single-column-11">
+            {% placeholder "content" %}
+          </div>
+        </div>
+
+        {% block footer %}
+          {% include "shimmytown/footer.html" %}
+        {% endblock %}
+
+        {% endblock %}
+
+    {% endblock %}
+
+  </div>
+
+{% endblock %}

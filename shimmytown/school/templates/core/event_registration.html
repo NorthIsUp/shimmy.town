@@ -1,0 +1,44 @@
+{% extends "core/base/base_event_registration.html" %}
+{% load cms_tags danceschool_tags sekizai_tags static %}
+
+{% block content %}
+
+{% page_url 'directions' as directions_url %}
+{% page_url 'calendar' as calendar_url %}
+
+<div class="row">
+
+<div class="col-md-12 top-col">
+	{% block top %}
+		{% static_placeholder 'registration_top' %}
+	{% endblock %}
+</div>
+
+<div class="col-md-8 content-col">
+
+{% block coming_soon %}
+	{{ block.super }}
+{% endblock %}
+
+{% if allSeries or allEvents %}
+
+{% block registration_form %}
+	{{ block.super }}
+{% endblock %}
+
+</div>
+
+<div class="col-md-4 sidebar-col sidebar-col-right">
+	{% static_placeholder 'registration_sidebar' %}
+</div>
+
+</div>
+
+{% block content_js %}{{ block.super }}{% endblock %}
+{% block content_css %}{{ block.super }}{% endblock %}
+
+{% endif %}
+
+{% block footer %}{{ block.super }}{% endblock %}
+
+{% endblock %}

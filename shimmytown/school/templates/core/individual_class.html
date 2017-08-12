@@ -1,0 +1,19 @@
+{% extends "core/base/base_individual_class.html" %}
+{% load danceschool_tags %}
+{% load thumbnail %}
+
+{% block title %}
+	{{ block.super }} - Shimmytown
+{% endblock %}
+
+{% block meta_title %}
+	{{ block.super }} - Shimmytown
+{% endblock %}
+
+{% block meta_description %}
+	Learn more about swing dancing through our {{ seriesset.0.month|readable_month }} {{ seriesset.0.year }} class, {{ seriesset.0.classDescription.title }} with Shimmytown. Classes begin {{ seriesset.0.startTime|date:'l, F jS' }} at {{ seriesset.0.location }}.
+{% endblock %}
+
+{% block facebook_og_description %}
+	Learn more about swing dancing through our {{ seriesset.0.month|readable_month }} {{ seriesset.0.year }} class, {{ seriesset.0.classDescription.title }} with Shimmytown. Classes begin {{ seriesset.0.startTime|date:'l, F jS' }} at {{ seriesset.0.location }}.
+{% endblock %}

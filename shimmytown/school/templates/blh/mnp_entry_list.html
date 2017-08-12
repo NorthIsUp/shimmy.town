@@ -1,0 +1,30 @@
+{% extends "cms/admin_home.html" %}
+
+{% block content %}
+
+<h1>Entry List for Monday Night Practice</h1>
+<h3>Week of {{ thisMonday }}</h3>
+
+<table class="table">
+<thead>
+	<tr>
+		<th>Name</th><th>BLH Staff Member</th>
+	</tr>
+</thead>
+<tbody>
+{% for member in staffMembers %}
+	<tr>
+		<td>{{ member.fullName }}</td>
+		<td> {{ member.status }}</td>
+	</tr>
+{% endfor %}
+{% for cust in customers %}
+	<tr>
+		<td>{{ cust.fullName }}</td>
+		<td></td>
+	</tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

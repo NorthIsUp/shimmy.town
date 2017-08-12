@@ -1,0 +1,32 @@
+<h3>Recommended Music</h3>
+
+<table class="songlist table table-striped table-bordered">
+    <thead>
+		<tr>
+			<th>Song Title</th>
+			<th>Album</th>
+			<th>BPM</th>
+			<th>Download</th>
+		</tr>
+	</thead>
+	<tbody>
+    {% for song in song_list %}
+        <tr class="{% cycle 'notalt' 'alt' %}">
+            <td class="title">{{ song.title }}</td>
+            <td class="album">{{ song.album }}</td>
+            <td class="bpm">{{ song.bpm }}</td>
+            <td class="download">
+                {% if song.itunesLink %}
+                    <a href="{{ song.itunesLink }}" target="_blank">iTunes</a>
+                {% endif %}
+                {% if song.itunesLink and song.amazonLink %}&nbsp;/&nbsp;{% endif %}
+                {% if song.amazonLink %}
+                    <a href="{{ song.amazonLink }}" target="_blank">Amazon</a>
+                {% endif %}
+
+            </td>
+
+        </tr>
+    {% endfor %}
+	</tbody>
+</table>
