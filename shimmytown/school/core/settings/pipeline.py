@@ -17,8 +17,8 @@ def patch_pipeline(g):
     g['PIPELINE'] = {
         'SHOW_ERRORS_INLINE': False,
 
-        'PIPELINE_ENABLED': False,
-        'PIPELINE_COLLECTOR_ENABLED': True,
+        # 'PIPELINE_ENABLED': False,
+        # 'PIPELINE_COLLECTOR_ENABLED': True,
         'STYLESHEETS': {
             'app': {
                 'source_filenames': (

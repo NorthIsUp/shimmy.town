@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+from logging.handlers import SysLogHandler
 
 import os
 import dj_database_url
@@ -129,7 +130,7 @@ MIDDLEWARE = [
 
     # Simplified static file serving.
     # https://warehouse.python.org/project/whitenoise/
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -244,3 +245,54 @@ CMS_TEMPLATES += (
     ('cms/homepage.html', 'Homepage'),
     ('cms/blh_frontpage.html', 'BLH Front Page Template'),
 )
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'formatters': {
+        'verbose': {
+            'format': '[contactor] %(levelname)s %(asctime)s %(message)s'
+        },
+    },
+    'handlers': {
+        # Send all messages to console
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        # Send info messages to syslog
+        'syslog':{
+            'level':'INFO',
+            'class': 'logging.handlers.SysLogHandler',
+            'facility': SysLogHandler.LOG_LOCAL2,
+            'address': '/dev/log',
+            'formatter': 'verbose',
+        },
+        # Warning messages are sent to admin emails
+        'mail_admins': {
+            'level': 'WARNING',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+        },
+        # critical errors are logged to sentry
+        # 'sentry': {
+        #     'level': 'ERROR',
+        #     'filters': ['require_debug_false'],
+        #     'class': 'raven.contrib.django.handlers.SentryHandler',
+        # },
+    },
+    'loggers': {
+        # This is the "catch all" logger
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    }
+}
