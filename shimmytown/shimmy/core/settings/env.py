@@ -58,8 +58,8 @@ def install_caps(g, l):
 
 def log_setting(setting, message='is a thing', cache={}):
     if cache.setdefault('first', 1):
-        logger.warn('----> Settings Info')
-    logger.warn('  --> %-20s - %s', '[%s]' % setting, message)
+        logger.warning('----> Settings Info')
+    logger.warning('  --> %-20s - %s', '[%s]' % setting, message)
     cache['first'] = 0
 
 

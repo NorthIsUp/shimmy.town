@@ -1,105 +1,134 @@
 {% load cms_tags menu_tags sekizai_tags static pipeline %}
 {% comment 'README' %}
-  This is the basic template that is used for all public-facing and non-public-facing pages.  It is recommended not to use or to edit this template directly, but rather to extend this template as needed, or to use the included templates home.html and admin_home.html, which are children of this template.
+This is the basic template that is used for all public-facing and non-public-facing pages.  It is recommended not to use or to edit this template directly, but rather to extend this template as needed, or to use the included templates home.html and admin_home.html, which are children of this template.
 {% endcomment %}
 
 <!DOCTYPE html>
 
 <html>
-  <head>
+<head>
 
-    {# Using UTF-8 for non-breaking spaces and other stuff #}
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  {# Using UTF-8 for non-breaking spaces and other stuff #}
+  <meta content="text/html; charset=UTF-8"
+        http-equiv="content-type" />
 
-    {# Viewport definition #}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  {# Viewport definition #}
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-    {# Fix for Windows Phones #}
-    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE, chrome=1" />
+  {# Fix for Windows Phones #}
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=9; IE=8; IE=7; IE=EDGE, chrome=1" />
 
-    <title>{% block title %}{% page_attribute "page_title" %}{% endblock %}</title>
+  <title>{% block title %}{% page_attribute "page_title" %}{% endblock %}</title>
 
-    {# Javascript Includes: Jquery and bootstrap go at the top to avoid issues with included scripts #}
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  {# Javascript Includes: Jquery and bootstrap go at the top to avoid issues with included scripts #}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+          crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+          integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+          crossorigin="anonymous"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  <!--<script type="text/javascript" src="{% static 'jquery/jquery-2.2.4.min.js' %}"></script>-->
+  <!--<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>-->
 
-    <!--<script type="text/javascript" src="{% static 'jquery/jquery-2.2.4.min.js' %}"></script>-->
-    <!--<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>-->
+  {% block extra_head %}
 
-    {% block extra_head %}
-
-        {# Favicon #}
-        {% block favicon %}<link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}" />{% endblock %}
-
-        {# Meta tags for SEO #}
-        <meta name="title" content="{% block meta_title %}{% page_attribute 'page_title' %}{% endblock %}" />
-        <meta name="description" content="{% block meta_description %}{% page_attribute 'meta_description' %}{% endblock %}" />
-        <meta name="keywords" content="{% block meta_keywords %}{% endblock %}" />
-        <meta name="category" content="{% block meta_category %}Recreation &amp; Sport{% endblock %}" />
-        <meta name="copyright" content="{% block meta_copyright %}{% endblock %}" />
-        <meta name="rating" content="{% block meta_rating %}Safe for kids{% endblock %}" />
-
-        {# Facebook Open Graph Tags #}
-        <meta property="og:title" content="{% block facebook_og_title %}{% page_attribute 'page_title' %}{% endblock %}" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="{{ site }}" />
-        <meta property="og:description" content="{% block facebook_og_description %}{% page_attribute 'meta_description' %}{% endblock %}" />
-        <meta property="og:image" content="{% block facebook_og_image %}{% endblock %}" />
-
+    {# Favicon #}
+    {% block favicon %}
+      <link rel="icon"
+            type="image/x-icon"
+            href="{% static 'img/favicon.ico' %}" />
     {% endblock %}
 
-    {% render_block "meta" %}
-    {% block extra_meta %}{% endblock %}
+    {# Meta tags for SEO #}
+    <meta name="title"
+          content="{% block meta_title %}{% page_attribute 'page_title' %}{% endblock %}" />
+    <meta name="description"
+          content="{% block meta_description %}{% page_attribute 'meta_description' %}{% endblock %}" />
+    <meta name="keywords"
+          content="{% block meta_keywords %}{% endblock %}" />
+    <meta name="category"
+          content="{% block meta_category %}Recreation &amp; Sport{% endblock %}" />
+    <meta name="copyright"
+          content="{% block meta_copyright %}{% endblock %}" />
+    <meta name="rating"
+          content="{% block meta_rating %}Safe for kids{% endblock %}" />
 
-    {# Bootstrap and Related Files #}
-    {% addtoblock "css" %}
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    {% endaddtoblock %}
-    {% addtoblock "css" %}
-      {% stylesheet "app" %}
-    {% endaddtoblock %}
+    {# Facebook Open Graph Tags #}
+    <meta property="og:title"
+          content="{% block facebook_og_title %}{% page_attribute 'page_title' %}{% endblock %}" />
+    <meta property="og:type"
+          content="website" />
+    <meta property="og:url"
+          content="{{ site }}" />
+    <meta property="og:description"
+          content="{% block facebook_og_description %}{% page_attribute 'meta_description' %}{% endblock %}" />
+    <meta property="og:image"
+          content="{% block facebook_og_image %}{% endblock %}" />
 
-    {% render_block "css" %}
-    {% block extra_css %}{% endblock %}
+  {% endblock %}
 
-  </head>
+  {% render_block "meta" %}
+  {% block extra_meta %}{% endblock %}
 
-  <body>
-    <span itemscope itemtype="http://schema.org/LocalBusiness">
+  {# Bootstrap and Related Files #}
+  {% addtoblock "css" %}
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  {% endaddtoblock %}
+  {% addtoblock "css" %}
+    {% stylesheet "app" %}
+  {% endaddtoblock %}
 
-      {% cms_toolbar %}
+  {% render_block "css" %}
+  {% block extra_css %}{% endblock %}
 
-      {% block body %}
+</head>
 
-      {% block navbar %}
-          {% show_menu 0 100 100 100 "cms/navbar.html" %}
-      {% endblock %}
+<body>
+<span itemscope
+      itemtype="http://schema.org/LocalBusiness">
 
-      <div class="container" id="wrapper">
+  {% cms_toolbar %}
 
-          {% block main %}
+  {% block navbar %}
+    {% show_menu 0 100 100 100 "shimmytown/navbar.html" %}
+  {% endblock %}
+
+  {% block body %}
+
+    <div class="container-fluid"
+         id="wrapper">
+
+      {% block main %}
+        {# Default to a single column page #}
+        <div class="row"
+             id="main_row">
+          <div class="col-md-8 col-md-offset-2 content-col single-column-11">
+
+          {% block content %}
             {# Default to a single column page #}
-            {% block content %}
-            <div class="row">
-            <div class="col-md-11 content-col">
             {% placeholder "content" %}
-            </div>
-            </div>
-            {% endblock %}
-
-            {% block footer %}{% endblock %}
-
           {% endblock %}
+          </div>
+        </div>
+
+      {% endblock %}
 
       </div>
 
-      {% endblock %}
-    </span>
+    {% block footer %}
+      {% include "shimmytown/footer.html" %}
+    {% endblock %}
 
-  {% render_block "js" %}
-  {% block extra_js %}{% endblock %}
+  {% endblock %}
+</span>
 
-  </body>
+{% render_block "js" %}
+{% block extra_js %}{% endblock %}
+
+</body>
 
 </html>

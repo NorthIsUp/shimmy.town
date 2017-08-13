@@ -1,31 +1,100 @@
 {% extends "cms/home.html" %}
 {% load cms_tags %}
 
+{% block main %}
 
-{% block content %}
-	<div class="row" id="splash_row">
-		<div id="action_well_container">
-			{% comment 'TODO' %}
-			<div class='well action_well action_well_alert'>{% placeholder "alert_well" %}</div>
-			{% endcomment %}
-
-			<div class='well action_well'>{% placeholder "action_well" %}</div>
-	    </div>
-	    <div id="action_well_container_right">
-			<div class='well action_well action_well_highlight'>{% placeholder "call_to_action" %}</div>
-	    </div>
-	</div>
-
-	<div class="row" id="main_row">
-	    {# Two columns #}
-	    <div class="col-md-8 content-col">
-	    {% placeholder "content" %}
-	    </div>
-	    <div class="col-md-4 sidebar-col sidebar-col-right">
-	    {% placeholder "sidebar" %}
-	    </div>
+  <!-- Header -->
+<header class="" style="background-image: url('/static/img/hero.jpg')">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">Welcome To Our Studio!</div>
+            <div class="intro-heading">It's Nice To Meet You</div>
+            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+        </div>
     </div>
+</header>
 
-    {% block footer %}{{ block.super }}{% endblock %}
+  {# Default to a single column page #}
+  <div class="row"
+       id="main_row">
+    <div class="col-md-8 col-md-offset-2 content-col single-column-11">
 
+      {% block content %}
+        {# Default to a single column page #}
+        <div class="row"
+             id="splash_row">
+          <div id="action_well_container">
+            {% comment 'TODO' %}
+              <div class='well action_well action_well_alert'>{% placeholder "alert_well" %}</div>
+            {% endcomment %}
+            <div class='well action_well'>{% placeholder "action_well" %}</div>
+          </div>
+          <div id="action_well_container_right">
+            <div class='well action_well action_well_highlight'>{% placeholder "call_to_action" %}</div>
+          </div>
+        </div>
+
+        <div class="row"
+             id="main_row">
+          {# Two columns #}
+          <div class="col-md-8 content-col">
+            {% placeholder "content" %}
+          </div>
+          <div class="col-md-4 sidebar-col sidebar-col-right">
+            {% placeholder "sidebar" %}
+          </div>
+        </div>
+      {% endblock %}
+    </div>
+  </div>
+
+  <section class="page-section"
+           id="services">
+    <div class="container-fluid p-0">
+      <div class="wow fadeIn text-center"
+           style="visibility: visible; animation-name: fadeIn;">
+        <h1>Shimmytown provides...</h1>
+        <p class="mb-0 mt-3 m-x">We do lots of cool things like...</p>
+      </div>
+      <hr class="colored">
+      <div class="row text-center fg-white">
+        <div class="p-5 bg-brand-blue col-lg-3 col-md-6">
+          <div class="wow fadeIn px-4 pb-4 pb-lg-0 h-100"
+               data-wow-delay=".2s"
+               style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+            <i class="fa fa-pencil fa-4x"></i>
+            <h3>Lessons</h3>
+            <p>Group lessons in lindy hop, solo jazz, and other swing dances.</p>
+          </div>
+        </div>
+        <div class="p-5 bg-brand-dark-purple col-lg-3 col-md-6">
+          <div class="wow fadeIn px-4 pb-4 pb-lg-0 h-100"
+               data-wow-delay=".4s"
+               style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
+            <i class="fa fa-smile-o fa-4x"></i>
+            <h3>Dance Party</h3>
+            <p>Dance to jazz every Monday night at the Verdi Club.</p>
+          </div>
+        </div>
+        <div class="p-5 bg-brand-yellow col-lg-3 col-md-6">
+          <div class="wow fadeIn px-4 pb-4 pb-lg-0 h-100"
+               data-wow-delay=".6s"
+               style="visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;">
+            <i class="fa fa-music fa-4x"></i>
+            <h3>Teams</h3>
+            <p>Train up to the top and join our competition teams.</p>
+          </div>
+        </div>
+        <div class="p-5 bg-brand-red col-lg-3 col-md-6">
+          <div class="wow fadeIn px-4 pb-4 pb-lg-0 h-100"
+               data-wow-delay=".8s"
+               style="visibility: visible; animation-delay: 0.8s; animation-name: fadeIn;">
+            <i class="fa fa-heart fa-4x"></i>
+            <h3>Shimmystuff</h3>
+            <p>Card games for dancers and instructors, shirts, etc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

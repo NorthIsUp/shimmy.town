@@ -1,9 +1,12 @@
 from __future__ import absolute_import
+from .env import log_setting
 
 
 def patch_pipeline(g):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/1.9/howto/static-files/
+    log_setting('BOOTSTRAP_VERSION', g.setdefault('BOOTSTRAP_VERSION', 3))
+
     g['INSTALLED_APPS'] += ['pipeline']
 
     g['STATICFILES_STORAGE'] = 'pipeline.storage.PipelineCachedStorage'
@@ -36,10 +39,12 @@ def patch_pipeline(g):
         # 'JS_COMPRESSOR': 'pipeline.compressors.yuglify.YuglifyCompressor',
         # 'YUGLIFY_BINARY': BASE_DIR / 'node_modules' / '.bin' / 'yuglify',
         'SASS_BINARY': '/usr/bin/env python -m sassc',
-        'SASS_ARGUMENTS': ' '.join('-I {}'.format(d) for d in (
-            g['BASE_DIR'] / 'vendor/static/bootstrap/stylesheets',
-            # g['BASE_DIR'] / 'bower_components/motion-ui/src',
-        )),
+        'SASS_ARGUMENTS': ' '.join(
+            ['--source-comments'] + ['-I {}'.format(d) for d in  (
+                g['STATIC_ROOT'] / 'bootstrap{BOOTSTRAP_VERSION}/scss'.format(**g),
+                # g['BASE_DIR'] / 'bower_components/motion-ui/src',
+            )]
+        ),
     }
 
     g['STATIC_ROOT'] = g['BASE_DIR'] / 'static'

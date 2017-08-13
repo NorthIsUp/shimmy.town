@@ -1,0 +1,36 @@
+// Variables
+
+// Gray and Brand Colors for use across theme
+@import "bootstrap-variables";
+
+$theme-primary:    $brand-yellow; // #fed136;
+$theme-danger:     #e74c3c;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:       $white !default;
+$body-color:    $gray-dark !default;
+$inverse-bg:    $gray-dark !default;
+$inverse-color: $gray-lighter !default;
+
+
+.bg-brand-red {background-color: $brand-red;}
+.bg-brand-pink {background-color: $brand-pink;}
+.bg-brand-blue {background-color: $brand-blue;}
+.bg-brand-purple {background-color: $brand-purple;}
+.bg-brand-yellow {background-color: $brand-yellow;}
+.bg-brand-dark-purple {background-color: $brand-dark-purple;}
+
+.fg-white {color: white; }
+
+$navbar-default-bg: $brand-dark-purple;
+//$navbar-default-border
+$navbar-default-brand-color: $brand-yellow;
+//$navbar-default-brand-hover-color
+//$navbar-default-brand-hover-bg
+//$navbar-default-color
+$navbar-default-link-color: lighten($brand-purple, 20%);
+$navbar-default-link-hover-color: $brand-yellow;
+//$navbar-default-link-hover-bg

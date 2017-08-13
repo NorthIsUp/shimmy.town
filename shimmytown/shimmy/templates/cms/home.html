@@ -102,32 +102,4 @@ Shimmytown offers Lindy Hop, Swing Dance, Balboa, and Charleston classes in Bost
 {% endblock %}
 
 
-{% block body %}
-
-  <div class="container" id="wrapper">
-
-    {% block navbar %}
-        {% show_menu 0 100 100 100 "shimmytown/navbar.html" %}
-    {% endblock %}
-
-    {% block main %}
-
-        {% block content %}
-        <div class="row" id="main_row">
-          {# Default to a single column page #}
-          <div class="col-md-11 content-col single-column-11">
-            {% placeholder "content" %}
-          </div>
-        </div>
-
-        {% block footer %}
-          {% include "shimmytown/footer.html" %}
-        {% endblock %}
-
-        {% endblock %}
-
-    {% endblock %}
-
-  </div>
-
-{% endblock %}
+{% block body %}{{ block.super }}{% endblock %}
