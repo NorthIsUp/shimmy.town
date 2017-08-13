@@ -31,10 +31,9 @@ urlpatterns = [
 
 urlpatterns += [
     # Include your own app's URLs first to override default app URLs
-    # url(r'^', include('<yourapp>.urls')),
+    url(r'^', include('shimmy.urls')),
     # Now, include default app URLs
     url(r'^', include('danceschool.urls')),
-    url(r'^_bootstrap', TemplateView.as_view(template_name='bootstrap.html')),
     url(r'^', include('cms.urls')),
 ]
 
@@ -43,4 +42,5 @@ if settings.DEBUG:
 
     urlpatterns = [
         url(r'^__debug__/', include(debug_toolbar.urls)),
+        url(r'^_bootstrap', TemplateView.as_view(template_name='bootstrap.html')),
     ] + urlpatterns

@@ -3,8 +3,8 @@
 from __future__ import absolute_import
 
 # External Libraries
-from school.core.settings import log_setting
-from school.core.settings.env import (
+from shimmy.core.settings import log_setting
+from shimmy.core.settings.env import (
     DEBUG,
     LOCAL,
 )

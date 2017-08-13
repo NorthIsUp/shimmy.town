@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 from __future__ import absolute_import
 
 # Standard Library
@@ -32,7 +31,7 @@ if __name__ == '__main__':
     except (ImportError, FileNotFoundError):
         pass
 
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'school.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 
     DATABASE_URL = os.environ.get('DATABASE_URL')
     if DATABASE_URL and not os.environ.get('DATABASE_AWS_CHECK'):

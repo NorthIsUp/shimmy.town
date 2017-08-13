@@ -1,6 +1,7 @@
-
 # Created by https://www.gitignore.io/api/python,django,flask,intellij,pycharm,sublimetext,vim,emacs,node,bower
 shimmytown/static
+.DS_Store
+.idea
 
 ### Bower ###
 bower_components

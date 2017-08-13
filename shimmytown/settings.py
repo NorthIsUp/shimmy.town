@@ -19,17 +19,17 @@ from path import Path
 # they do not need to be specified here directly.
 # You may always override these defaults below.
 from danceschool.default_settings import *
-from school.core.settings.env import *
+from shimmy.core.settings.env import *
 
 # This line is required by Django CMS to determine default URLs
 # for pages.
-from school.core.settings.monkey import patch_all
+from shimmy.core.settings.monkey import patch_all
 
 
 SITE_ID = 1
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -101,7 +101,7 @@ INSTALLED_APPS = [
     #############################
     # ## Typically, if you have a custom app for custom functionality,
     # ## it will be added here:
-    'school',
+    'shimmy',
     'vendor',
     #############################
 
@@ -146,13 +146,13 @@ MIDDLEWARE = [
     'cms.middleware.language.LanguageCookieMiddleware',
 ]
 
-ROOT_URLCONF = 'school.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # Ensures that the project's base templates directory is loaded.
-        'DIRS': [os.path.join(BASE_DIR, 'school', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'shimmy', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -167,7 +167,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'school.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 
 # Database
@@ -296,3 +296,9 @@ LOGGING = {
         },
     }
 }
+
+DJANGOCMS_FORMS_PLUGIN_MODULE = 'Forms'
+DJANGOCMS_FORMS_TEMPLATES = (
+    ('djangocms_forms/form_template/default.html', 'Default'),
+    ('forms/djangocms_forms_crispy.html','Crispy Form (recommended)'),
+)
