@@ -1,8 +1,3 @@
--e git+https://github.com/NorthIsUp/django-danceschool.git@fix-28#egg=django-danceschool
-# -e git+https://github.com/jazzband/django-pipeline.git#egg=django-pipeline
-
--e git+https://github.com/divio/django-cms.git@8fabb5c3ef8b9283b535ea1b76f029c51d3e9c29#egg=django-cms
-
 autoflake
 dj-database-url
 django-danceschool
@@ -18,3 +13,4 @@ sendgrid-django
 whitenoise
 django-extensions
 django-debug-toolbar
+-e git+https://github.com/divio/django-cms.git@8fabb5c3ef8b9283b535ea1b76f029c51d3e9c29#egg=django-cms

@@ -34,12 +34,16 @@ if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
 
     DATABASE_URL = os.environ.get('DATABASE_URL')
+    ENVIRONMENT = os.environ.get('ENVIRONMENT')
     if DATABASE_URL and not os.environ.get('DATABASE_AWS_CHECK'):
-        if 'localhost' not in DATABASE_URL:
+        if ENVIRONMENT != 'PRODUCTION' and 'localhost' not in DATABASE_URL:
+            confirm = input('say yes >>> ')
+            if confirm != 'yes':
+                exit(1)
+
             logger.critical(' USING PRODUCTION DATABASE '.center(80, '-'))
             logger.critical(DATABASE_URL)
             logger.critical(' USING PRODUCTION DATABASE '.center(80, '-'))
-            time.sleep(5)
 
     from django.core.management import execute_from_command_line
     execute_from_command_line(sys.argv)

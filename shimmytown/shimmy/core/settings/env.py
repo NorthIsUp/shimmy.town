@@ -64,13 +64,15 @@ def log_setting(setting, message='is a thing', cache={}):
 
 
 #: if true the environment is executing on a single host machine (os x or vagrant)
-ENV_LOCAL = 'LOCAL'
-LOCAL = env_or(ENV_LOCAL, False, bool)
+ENV_ENVIRONMENT = 'ENVIRONMENT'
+ENVIRONMENT = env_or(ENV_ENVIRONMENT, '', str)
+log_setting(ENVIRONMENT)
+
+LOCAL = ENVIRONMENT == 'DEV'
 LOCAL and log_setting('LOCAL', 'is enabled')
 
 #: if true the environment is executing tests
-ENV_TEST = 'TEST'
-TEST = env_or(ENV_TEST, False, bool)
+TEST = ENVIRONMENT == 'TEST'
 TEST and log_setting('TEST', 'is enabled')
 
 #: if true the django debug options should be set
