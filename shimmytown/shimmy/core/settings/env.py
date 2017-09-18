@@ -135,3 +135,7 @@ SLACK_TOKEN = env_or('SLACK_TOKEN', None)
 SLACK_FAIL_SILENTLY = env_or('SLACK_FAIL_SILENTLY', True)
 SLACK_ICON_URL = env_or('SLACK_ICON_URL', '')
 SLACK_BACKEND = env_or('SLACK_BACKEND', 'django_slack.backends.RequestsBackend')
+
+PAYPAL_MODE = env_or('PAYPAL_MODE', 'sandbox')
+PAYPAL_CLIENT_ID = env_or('PAYPAL_CLIENT_ID', None)
+PAYPAL_CLIENT_SECRET = env_or('PAYPAL_CLIENT_SECRET', None)
