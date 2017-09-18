@@ -151,9 +151,9 @@ AWS_STORAGE_BUCKET_NAME = env_or('AWS_STORAGE_BUCKET_NAME', None)
 AWS_DEFAULT_ACL = env_or('AWS_DEFAULT_ACL', 'public-read')
 AWS_LOCATION = env_or('AWS_LOCATION', '')
 AWS_S3_HOST = env_or('AWS_S3_HOST', 's3.amazonaws.com')
-
+AWS_S3_SECURE_URLS = env_or('AWS_S3_SECURE_URLS', False)       # use http instead of https
+AWS_QUERYSTRING_AUTH = env_or('AWS_QUERYSTRING_AUTH', False)     # don't add complex authentication-related query parameters for requests
 S3_USE_SIGV4 = env_or('S3_USE_SIGV4', True, bool)
-AWS_S3_SIGNATURE_VERSION = env_or('AWS_S3_SIGNATURE_VERSION', 's3v4')
 
 DEFAULT_FILE_STORAGE = env_or('DEFAULT_FILE_STORAGE', 'storages.backends.s3boto.S3BotoStorage')
 STATICFILES_STORAGE = env_or('STATICFILES_STORAGE', DEFAULT_FILE_STORAGE)
