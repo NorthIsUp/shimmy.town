@@ -153,6 +153,7 @@ AWS_LOCATION = env_or('AWS_LOCATION', '')
 AWS_S3_HOST = env_or('AWS_S3_HOST', 's3.amazonaws.com')
 
 S3_USE_SIGV4 = env_or('S3_USE_SIGV4', True, bool)
+AWS_S3_SIGNATURE_VERSION = env_or('AWS_S3_SIGNATURE_VERSION', 's3v4')
 
 DEFAULT_FILE_STORAGE = env_or('DEFAULT_FILE_STORAGE', 'storages.backends.s3boto3.S3Boto3Storage')
 STATICFILES_STORAGE = env_or('STATICFILES_STORAGE', 'storages.backends.s3boto3.S3Boto3Storage')
