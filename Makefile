@@ -1,4 +1,8 @@
 APP := shimmytown
+
+run:
+	cd shimmytown ; ./manage.py runserver
+
 db-backup-production: ##@db pull down a copy of the production db
 	mkdir -p db_backups
 	heroku pg:backups capture --app ${APP}

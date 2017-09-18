@@ -57,11 +57,16 @@ def install_caps(g, l):
 
 
 def log_setting(setting, message='is a thing', cache={}):
-    if cache.setdefault('first', 1):
-        logger.warning('----> Settings Info')
-    logger.warning('  --> %-20s - %s', '[%s]' % setting, message)
-    cache['first'] = 0
+    if not IS_MAIN:
+        if cache.setdefault('first', 1):
+            logger.warning('----> Settings Info')
+        logger.warning('  --> %-20s - %s', '[%s]' % setting, message)
+        cache['first'] = 0
 
+
+# RUN_MAIN will be set for the inner fork of a django debug env
+RUN_MAIN = env_or('RUN_MAIN', None)
+IS_MAIN = RUN_MAIN == 'true'
 
 #: if true the environment is executing on a single host machine (os x or vagrant)
 ENV_ENVIRONMENT = 'ENVIRONMENT'

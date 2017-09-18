@@ -5,14 +5,23 @@ from __future__ import absolute_import
 # Standard Library
 import os
 import sys
-import time
 from logging import getLogger
 
 # No imports from lindy.* allowed, they will break settings setup
 
-if __name__ == '__main__':
-    logger = getLogger()
+# RUN_MAIN will be set for the inner fork of a django debug env
+IS_MAIN = os.environ.get('RUN_MAIN') == 'true'
 
+def main():
+    if not IS_MAIN:
+        set_environment_variables()
+
+    from django.core.management import execute_from_command_line
+    execute_from_command_line(sys.argv)
+
+
+def set_environment_variables():
+    logger = getLogger()
     try:
         import dotenv
         with open('.env') as dot_env:
@@ -35,6 +44,7 @@ if __name__ == '__main__':
 
     DATABASE_URL = os.environ.get('DATABASE_URL')
     ENVIRONMENT = os.environ.get('ENVIRONMENT')
+
     if DATABASE_URL and not os.environ.get('DATABASE_AWS_CHECK'):
         if ENVIRONMENT != 'PRODUCTION' and 'localhost' not in DATABASE_URL:
             confirm = input('say yes >>> ')
@@ -45,5 +55,6 @@ if __name__ == '__main__':
             logger.critical(DATABASE_URL)
             logger.critical(' USING PRODUCTION DATABASE '.center(80, '-'))
 
-    from django.core.management import execute_from_command_line
-    execute_from_command_line(sys.argv)
+
+if __name__ == '__main__':
+    main()
