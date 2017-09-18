@@ -1,4 +1,5 @@
 autoflake
+boto3
 dj-database-url
 django-danceschool
 django-dotenv
