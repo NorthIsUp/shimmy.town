@@ -40,6 +40,7 @@ BASE_DIR = Path(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED_HOSTS = [
     'shimmytown.herokuapp.com',
     'shimmy.town',
+    'www.shimmy.town',
     'shimmytown.com',
 ]
 
@@ -53,6 +54,25 @@ if DEBUG or LOCAL:
 # Application definition
 
 INSTALLED_APPS = [
+    # ## This is the core app of the django-danceschool project that
+    # ## is required for all installations:
+    'danceschool.core',
+    # ## These apps provide additional functionality and are optional,
+    # ## but they are enabled by default:
+    'danceschool.financial',
+    'danceschool.private_events',
+    'danceschool.discounts',
+    'danceschool.vouchers',
+    'danceschool.prerequisites',
+    'danceschool.stats',
+    'danceschool.news',
+    'danceschool.faq',
+    # ## Uncomment the lines below to add payment processor integration:
+    'danceschool.payments.paypal',
+    # 'danceschool.payments.stripe',
+
+    ##########################
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -105,26 +125,11 @@ INSTALLED_APPS = [
     'vendor',
     #############################
 
-    # ## This is the core app of the django-danceschool project that
-    # ## is required for all installations:
-    'danceschool.core',
-    # ## These apps provide additional functionality and are optional,
-    # ## but they are enabled by default:
-    'danceschool.financial',
-    'danceschool.private_events',
-    'danceschool.discounts',
-    'danceschool.vouchers',
-    'danceschool.prerequisites',
-    'danceschool.stats',
-    'danceschool.news',
-    'danceschool.faq',
-    # ## Uncomment the lines below to add payment processor integration:
-    'danceschool.payments.paypal',
-    # 'danceschool.payments.stripe',
 ]
 
 MIDDLEWARE = [
     # This middleware is required by Django CMS for intelligent reloading on updates.
+    'shimmy.core.middleware.NoWWWRedirectMiddleware',
     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
 

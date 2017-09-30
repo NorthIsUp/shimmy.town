@@ -34,3 +34,12 @@ $navbar-default-brand-color: $brand-yellow;
 $navbar-default-link-color: lighten($brand-purple, 20%);
 $navbar-default-link-hover-color: $brand-yellow;
 //$navbar-default-link-hover-bg
+
+#wrapper {
+  padding: 0;
+}
+
+.navbar-static-top {
+  border: none;
+  margin-bottom: 0;
+}
