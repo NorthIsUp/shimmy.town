@@ -47,3 +47,16 @@ $navbar-default-link-hover-color: $brand-yellow;
 .btn {
   border-radius: 0
 }
+
+.weekday {
+  border: none;
+  background: $brand-purple !important;
+}
+
+.navbar-default {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
