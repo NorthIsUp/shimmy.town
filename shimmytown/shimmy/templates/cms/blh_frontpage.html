@@ -1,5 +1,5 @@
 {% extends "cms/home.html" %}
-{% load cms_tags %}
+{% load cms_tags sekizai_tags %}
 
 {% block main %}
 
@@ -73,29 +73,6 @@
 
       {% block content %}
         {# Default to a single column page #}
-        <div class="row"
-             id="splash_row">
-          <div id="action_well_container">
-            {% comment 'TODO' %}
-              <div class='well action_well action_well_alert'>{% placeholder "alert_well" %}</div>
-            {% endcomment %}
-            <div class='well action_well'>{% placeholder "action_well" %}</div>
-          </div>
-          <div id="action_well_container_right">
-            <div class='well action_well action_well_highlight'>{% placeholder "call_to_action" %}</div>
-          </div>
-        </div>
-
-        <div class="row"
-             id="main_row">
-          {# Two columns #}
-          <div class="col-md-8 content-col">
-            {% placeholder "content" %}
-          </div>
-          <div class="col-md-4 sidebar-col sidebar-col-right">
-            {% placeholder "sidebar" %}
-          </div>
-        </div>
       {% endblock %}
     </div>
   </div>
