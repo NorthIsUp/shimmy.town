@@ -2,7 +2,13 @@ APP := shimmytown
 
 run:
 	cd shimmytown ; ./manage.py runserver
+####################
+## Heroku
 
+heroku-purge-cache: ##@heroku purges the deployment cache
+	heroku repo:purge_cache
+
+####################
 db-backup-production: ##@db pull down a copy of the production db
 	mkdir -p db_backups
 	heroku pg:backups capture --app ${APP}
