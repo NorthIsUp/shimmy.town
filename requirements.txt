@@ -1,7 +1,9 @@
+# django-danceschool
+-e git+https://github.com/django-danceschool/django-danceschool.git#egg=danceschool
+
 autoflake
 boto
 dj-database-url
-django-danceschool
 django-dotenv
 django-pipeline
 django-storages
