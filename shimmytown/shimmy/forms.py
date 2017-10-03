@@ -1,13 +1,19 @@
+from __future__ import absolute_import
+
+# External Libraries
+from crispy_forms.bootstrap import Alert
+from crispy_forms.layout import (
+    Div,
+    Layout,
+)
+from danceschool.core.forms import RegistrationContactForm
 from django import forms
 from django.core.exceptions import ValidationError
-
-from danceschool.core.forms import RegistrationContactForm
-from crispy_forms.layout import Layout, Div
-from crispy_forms.bootstrap import Alert
+from django.utils.translation import ugettext_lazy as _
 
 from .core.constants import HOW_HEARD_CHOICES
-from .models import DatabaseQuery
 from .helpers import get_model_choices
+from .models import DatabaseQuery
 
 
 class BLHContactForm(RegistrationContactForm):
@@ -16,11 +22,20 @@ class BLHContactForm(RegistrationContactForm):
     It inherits from the danceschool app's basic form.
     '''
 
-    agreeToPolicies = forms.BooleanField(required=True,label='<strong>I agree to the Code of Conduct (required)</strong>',help_text='By checking, you agree to abide by all <a href="/policies/">BLH Policies</a>, including the <a href="/policies/conduct/">Code of Conduct</a>.')
-    mailList = forms.BooleanField(required=False,label='Add me to the BLH mailing list', help_text='Get occasional updates. We make sure that it\'s easy to unsubscribe if you change your mind.')
-    isMinor = forms.BooleanField(required=False,label='I am less than 18 years of age')
-    gift = forms.CharField(required=False,label='LivingSocial/Voucher ID',help_text='(buy one for a friend <a href="/gift-certificates/">here</a>)')
+    agreeToPolicies = forms.BooleanField(required=True,label='<strong>I agree to the Code of Conduct (required)</strong>',help_text='By checking, you agree to abide by all <a href="/policies/">Shimmytown Policies</a>, including the <a href="/policies/conduct/">Code of Conduct</a>.')
+    mailList = forms.BooleanField(required=False,label='Add me to the Shimmytown mailing list', help_text='Get occasional updates. We make sure that it\'s easy to unsubscribe if you change your mind.')
+    # isMinor = forms.BooleanField(required=False,label='I am less than 18 years of age')
+    gift = forms.CharField(required=False,label=_('Voucher ID'))
     howHeardAboutUs = forms.ChoiceField(choices=HOW_HEARD_CHOICES,required=False,label='How did you hear about us?',help_text='Optional')
+
+    def get_top_layout(self):
+
+        top_layout = Layout(
+            Div('firstName', 'lastName', 'email', css_class='form-inline'),
+            Div('phone', css_class='form-inline'),
+        )
+        return top_layout
+
 
     def get_mid_layout(self):
         mid_layout = Layout(
@@ -28,11 +43,19 @@ class BLHContactForm(RegistrationContactForm):
                 'agreeToPolicies',
                 'student',
                 'mailList',
-                Div('isMinor',data_toggle="collapse",data_target="#minorAlert"),
-                Alert('Before attending classes, we require all individuals under the age of 18 to have a waiver signed by their guardian. We may also require a guardian to be present. We do not currently offer classes for students under the age of 12.',css_id='minorAlert',css_class="alert-info collapse"),
+                # Div('isMinor',data_toggle="collapse",data_target="#minorAlert"),
+                # Alert('Before attending classes, we require all individuals under the age of 18 to have a waiver signed by their guardian. We may also require a guardian to be present. We do not currently offer classes for students under the age of 12.',css_id='minorAlert',css_class="alert-info collapse"),
                 css_class='well'),
         )
         return mid_layout
+
+    def get_bottom_layout(self):
+        bottom_layout = Layout(
+            Div('gift', css_class='form-inline'),
+            Div('howHeardAboutUs', css_class='form-inline'),
+            'comments',
+        )
+        return bottom_layout
 
 
 class QuerysetForm(forms.Form):
