@@ -54,6 +54,8 @@ if DEBUG or LOCAL:
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
+
     # ## This is the core app of the django-danceschool project that
     # ## is required for all installations:
     'danceschool.core',

@@ -9,7 +9,8 @@ def patch_pipeline(g):
 
     g['INSTALLED_APPS'] += ['pipeline']
 
-    g['STATICFILES_STORAGE'] = 'pipeline.storage.PipelineCachedStorage'
+    # if g['DEBUG']:
+    #     g['STATICFILES_STORAGE'] = 'pipeline.storage.PipelineCachedStorage'
 
     g['STATICFILES_FINDERS'] = (
         'django.contrib.staticfiles.finders.FileSystemFinder',

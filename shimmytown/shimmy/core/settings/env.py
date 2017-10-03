@@ -155,7 +155,7 @@ AWS_S3_SECURE_URLS = env_or('AWS_S3_SECURE_URLS', False)       # use http instea
 AWS_QUERYSTRING_AUTH = env_or('AWS_QUERYSTRING_AUTH', False)     # don't add complex authentication-related query parameters for requests
 S3_USE_SIGV4 = env_or('S3_USE_SIGV4', True, bool)
 
-DEFAULT_FILE_STORAGE = env_or('DEFAULT_FILE_STORAGE', 'storages.backends.s3boto.S3BotoStorage')
-STATICFILES_STORAGE = env_or('STATICFILES_STORAGE', DEFAULT_FILE_STORAGE)
+DEFAULT_FILE_STORAGE = env_or('DEFAULT_FILE_STORAGE', 'shimmy.core.storages.MediaRootS3BotoStorage')
+STATICFILES_STORAGE = env_or('STATICFILES_STORAGE', 'shimmy.core.storages.StaticRootS3BotoStorage')
 
 SECURE_SSL_REDIRECT = env_or('SECURE_SSL_REDIRECT', True, bool)

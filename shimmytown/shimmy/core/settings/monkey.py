@@ -10,3 +10,9 @@ def patch_all(g):
 
     from .django import patch_django
     patch_django(g)
+
+    from .redis import patch_redis
+    patch_redis(g)
+
+    from .storages import patch_storages
+    patch_storages(g)
