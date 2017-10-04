@@ -6,7 +6,7 @@ from .env import log_setting
 def patch_pipeline(g):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/1.9/howto/static-files/
-    log_setting('BOOTSTRAP_VERSION', g.setdefault('BOOTSTRAP_VERSION', 3))
+    log_setting('BOOTSTRAP_VERSION', g.setdefault('BOOTSTRAP_VERSION', 4))
 
     g['INSTALLED_APPS'] += ['pipeline']
 
