@@ -62,7 +62,7 @@ This is the basic template that is used for all public-facing and non-public-fac
     <meta property="og:type"
           content="website" />
     <meta property="og:url"
-          content="{{ site }}" />
+          content="{% block facebook_og_url%}{% endblock %}" />
     <meta property="og:description"
           content="{% block facebook_og_description %}{% page_attribute 'meta_description' %}{% endblock %}" />
     <meta property="og:image"
