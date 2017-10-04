@@ -70,8 +70,9 @@ INSTALLED_APPS = [
     'danceschool.news',
     'danceschool.faq',
     # ## Uncomment the lines below to add payment processor integration:
-    'danceschool.payments.paypal',
+    # 'danceschool.payments.paypal',
     # 'danceschool.payments.stripe',
+    'danceschool.payments.square ',
 
     ##########################
 
