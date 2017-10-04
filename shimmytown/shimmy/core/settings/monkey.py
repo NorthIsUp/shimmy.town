@@ -16,3 +16,6 @@ def patch_all(g):
 
     from .storages import patch_storages
     patch_storages(g)
+
+    from .huey import patch_huey
+    patch_huey(g)
