@@ -72,7 +72,7 @@ INSTALLED_APPS = [
     # ## Uncomment the lines below to add payment processor integration:
     # 'danceschool.payments.paypal',
     # 'danceschool.payments.stripe',
-    'danceschool.payments.square ',
+    'danceschool.payments.square',
 
     ##########################
 
