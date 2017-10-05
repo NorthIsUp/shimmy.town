@@ -3,8 +3,12 @@ from __future__ import absolute_import
 # External Libraries
 from crispy_forms.bootstrap import Alert
 from crispy_forms.layout import (
+    HTML,
     Div,
+    Field,
+    Hidden,
     Layout,
+    Submit,
 )
 from danceschool.core.forms import RegistrationContactForm
 from django import forms
@@ -29,13 +33,19 @@ class BLHContactForm(RegistrationContactForm):
     howHeardAboutUs = forms.ChoiceField(choices=HOW_HEARD_CHOICES,required=False,label='How did you hear about us?',help_text='Optional')
 
     def get_top_layout(self):
-
         top_layout = Layout(
-            Div('firstName', 'lastName', 'email', css_class='form-inline'),
-            Div('phone', css_class='form-inline'),
+            Div(
+                Div('firstName', css_class='col-md-6 form-group'),
+                Div('lastName', css_class='col-md-6 form-group'),
+                css_class='row'
+            ),
+            Div(
+                Div('email', css_class='col-md-6 form-group'),
+                Div('phone', css_class='col-md-6 form-group'),
+                css_class='row'
+            ),
         )
         return top_layout
-
 
     def get_mid_layout(self):
         mid_layout = Layout(
@@ -45,15 +55,20 @@ class BLHContactForm(RegistrationContactForm):
                 'mailList',
                 # Div('isMinor',data_toggle="collapse",data_target="#minorAlert"),
                 # Alert('Before attending classes, we require all individuals under the age of 18 to have a waiver signed by their guardian. We may also require a guardian to be present. We do not currently offer classes for students under the age of 12.',css_id='minorAlert',css_class="alert-info collapse"),
-                css_class='well'),
+                css_class='card card-block bg-faded'),
         )
         return mid_layout
 
     def get_bottom_layout(self):
         bottom_layout = Layout(
-            Div('gift', css_class='form-inline'),
-            Div('howHeardAboutUs', css_class='form-inline'),
-            'comments',
+            Div(
+                Div('gift', css_class='col-md-6 form-group'),
+                Div('howHeardAboutUs', css_class='col-md-6 form-group'),
+                Div(
+                    Field('comments', rows=2, css_class='col-md-12 form-group'),
+                    css_class='col-md-12 form-group'
+                ),
+            css_class='row')
         )
         return bottom_layout
 

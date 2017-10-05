@@ -1,0 +1,4 @@
+// pad when the cms toolbar is expanded
+.cms-toolbar-expanded body, .cms-toolbar-expanded .fixed-top{
+    top: 3rem;
+}

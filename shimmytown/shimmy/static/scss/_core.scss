@@ -1,0 +1,43 @@
+#wrapper {
+  padding-top: 4.5rem;
+}
+
+.btn {
+  border-radius: 0
+}
+
+.navbar {
+  background-color: $brand-dark-purple !important;
+  font-weight: bold;
+}
+
+.navbar-brand {
+  @include brand-font;
+}
+
+footer {
+    padding: 25px 0;
+    span.copyright {
+        line-height: 40px;
+        @include brand-font;
+        text-transform: none;
+    }
+    ul.quicklinks {
+        margin-bottom: 0;
+        line-height: 40px;
+        @include brand-font;
+        text-transform: none;
+    }
+}
+//.navbar-static-top {
+//  border: none;
+//  margin-bottom: 0;
+//}
+//
+//.navbar-default {
+//  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+//}
+//
+//.navbar-brand {
+//  font-weight: bold;
+//}

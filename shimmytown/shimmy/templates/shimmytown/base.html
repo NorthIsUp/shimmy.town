@@ -67,7 +67,7 @@ This is the basic template that is used for all public-facing and non-public-fac
     <meta property="og:type"
           content="website" />
     <meta property="og:url"
-          content="{% block facebook_og_url%}{% endblock %}" />
+          content="{% block facebook_og_url %}{% endblock %}" />
     <meta property="og:description"
           content="{% block facebook_og_description %}{% page_attribute 'meta_description' %}{% endblock %}" />
     <meta property="og:image"
@@ -104,32 +104,30 @@ This is the basic template that is used for all public-facing and non-public-fac
 
   {% block body %}
 
-    <div class="container-fluid"
-         id="wrapper">
+    {% block main %}
+      {# Default to a single column page #}
+      <div class="container-fluid py-1-sm py-3-md"
+           id="wrapper">
+        <div class="row justify-content-md-center"
+           id="main_row">
+          <div class="col-md-10 col-lg-8 content-col single-column-11">
 
-      {% block main %}
-        {# Default to a single column page #}
-        <div class="row"
-             id="main_row">
-          <div class="col-md-8 col-md-offset-2 content-col single-column-11">
-
-          {% block content %}
-            {# Default to a single column page #}
-            {% placeholder "content" %}
-          {% endblock %}
+            {% block content %}
+              {# Default to a single column page #}
+              {% placeholder "content" %}
+            {% endblock %}
           </div>
         </div>
-
-      {% endblock %}
-
       </div>
+    {% endblock %}
+
 
     {% block footer %}
       {% include "shimmytown/footer.html" %}
     {% endblock %}
 
   {% endblock %}
-</span>
+  </span>
 
 {% render_block "js" %}
 {% block extra_js %}{% endblock %}

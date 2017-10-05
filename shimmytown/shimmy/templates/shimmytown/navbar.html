@@ -1,9 +1,7 @@
 {% load menu_tags danceschool_tags i18n %}
 
-<nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
-  <a class="navbar-brand"
-     href="#">{% getSchoolName %}</a>
-  <button class="navbar-toggler"
+<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse">
+  <button class="navbar-toggler navbar-toggler-right"
           type="button"
           data-toggle="collapse"
           data-target="#navbarCollapse"
@@ -12,9 +10,11 @@
           aria-label="{% trans 'Toggle navigation' %}">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <a class="navbar-brand" href="#">{% getSchoolName %}</a>
+
   <div class="collapse navbar-collapse"
        id="navbarCollapse">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mr-auto navbar-right">
       {% for child in children %}
         {% if child.children %}
           <li class="child{% if child.selected %} active selected{% endif %}{% if child.ancestor %} ancestor{% endif %}{% if child.sibling %} sibling{% endif %}{% if child.descendant %} descendant{% endif %} nav-item dropdown">

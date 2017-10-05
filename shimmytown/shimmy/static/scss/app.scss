@@ -1,5 +1,9 @@
-@import "bootstrap";
-@import "mixins";
+@import "debug";
+@import "custom";
 
+@import "core";
 @import "header";
+@import "frontpage";
 @import "registration";
+
+@import "bootstrap";

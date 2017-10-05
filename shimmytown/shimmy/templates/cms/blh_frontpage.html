@@ -1,11 +1,12 @@
 {% extends "cms/home.html" %}
-{% load cms_tags sekizai_tags %}
+{% load cms_tags sekizai_tags static %}
+
 
 {% block main %}
 
   <!-- Header -->
   <header class=""
-          style="background-image: url('/static/img/hero.jpg')">
+          style="background-image: url('{% static 'img/hero.jpg' %}')">
     <div class="container">
       <div class="intro-text">
         <div class="intro-lead-in">Welcome to Shimmytown</div>
@@ -26,54 +27,42 @@
         {% placeholder "about well" %}
       </div>
       <div class="row text-center fg-white">
-        <div class="p-5 bg-brand-blue col-lg-3 col-md-6">
-          <div class="wow fadeIn px-4 pb-4 pb-lg-0 h-100"
-               data-wow-delay=".2s"
-               style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
-            <i class="fa fa-pencil fa-4x"></i>
-            <h3>Lessons</h3>
-            <p>Group lessons in lindy hop, solo jazz, and other swing dances.</p>
-          </div>
+        <div class="bg-brand-blue p-3 col-lg-3 col-md-6">
+          <i class="fa fa-pencil fa-4x"></i>
+          <h3>Lessons</h3>
+          <p>Group lessons in lindy hop, solo jazz, and other swing dances.</p>
         </div>
-        <div class="p-5 bg-brand-dark-purple col-lg-3 col-md-6">
-          <div class="wow fadeIn px-4 pb-4 pb-lg-0 h-100"
-               data-wow-delay=".4s"
-               style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;">
-            <i class="fa fa-smile-o fa-4x"></i>
-            <h3>Dance Party</h3>
-            <p>Dance to jazz every Monday night at the Verdi Club.</p>
-          </div>
+        <div class="bg-brand-dark-purple p-3 col-lg-3 col-md-6">
+          <i class="fa fa-smile-o fa-4x"></i>
+          <h3>Dance Party</h3>
+          <p>Dance to jazz every Monday night at the Verdi Club.</p>
         </div>
-        <div class="p-5 bg-brand-yellow col-lg-3 col-md-6">
-          <div class="wow fadeIn px-4 pb-4 pb-lg-0 h-100"
-               data-wow-delay=".6s"
-               style="visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;">
-            <i class="fa fa-music fa-4x"></i>
-            <h3>Teams</h3>
-            <p>Train up to the top and join our competition teams.</p>
-          </div>
+        <div class="bg-brand-yellow p-3 col-lg-3 col-md-6">
+          <i class="fa fa-music fa-4x"></i>
+          <h3>Teams</h3>
+          <p>Train up to the top and join our competition teams.</p>
         </div>
-        <div class="p-5 bg-brand-red col-lg-3 col-md-6">
-          <div class="wow fadeIn px-4 pb-4 pb-lg-0 h-100"
-               data-wow-delay=".8s"
-               style="visibility: visible; animation-delay: 0.8s; animation-name: fadeIn;">
-            <i class="fa fa-heart fa-4x"></i>
-            <h3>Shimmystuff</h3>
-            <p>Card games for dancers and instructors, shirts, etc.</p>
-          </div>
+        <div class="bg-brand-red p-3 col-lg-3 col-md-6">
+          <i class="fa fa-heart fa-4x"></i>
+          <h3>Shimmystuff</h3>
+          <p>Card games for dancers and instructors, shirts, etc.</p>
         </div>
       </div>
     </div>
   </section>
 
   {# Default to a single column page #}
-  <div class="row"
+  <div class="container-fluid"
+       id="wrapper">
+    <div class="row"
        id="main_row">
-    <div class="col-md-8 col-md-offset-2 content-col single-column-11">
+      <div class="col-md-8 col-md-offset-2 content-col single-column-11">
 
-      {% block content %}
-        {# Default to a single column page #}
-      {% endblock %}
+        {% block content %}
+          {# Default to a single column page #}
+          {% placeholder "content" %}
+        {% endblock %}
+      </div>
     </div>
   </div>
 

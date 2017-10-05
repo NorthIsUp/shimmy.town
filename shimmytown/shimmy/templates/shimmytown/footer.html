@@ -1,83 +1,86 @@
 {% load cms_tags menu_tags sekizai_tags static pipeline %}
-<div class="row"
-     id="footer_row">
-  <hr />
-  <div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 footerblock">
-    {#    <img id="footerlogo"#}
-    {#       title="Dance with us!"#}
-    {#       alt="Dance with Shimmytown!"#}
-    {#       src="{% static 'img/logo.png' %}" />#}
+<footer>
+  <div class="container">
+    <div class="row justify-content-center align-self-center">
+      <div class="col-md-5 align-self-center">
+        {#    <img id="footerlogo"#}
+        {#       title="Dance with us!"#}
+        {#       alt="Dance with Shimmytown!"#}
+        {#       src="{% static 'img/logo.png' %}" />#}
+        <a href="/directions"
+           itemprop="address"
+           itemscope
+           itemtype="http://schema.org/PostalAddress">
+          <i class="fa fa-map-marker"
+             aria-hidden="true">
+            <span itemprop="streetAddress">2424 Mariposa St.</span>,
+            <span itemprop="addressLocality">San Francisco</span>, <span itemprop="addressRegion">CA</span>
+            <span itemprop="postalCode">94110</span>
+          </i>
+        </a>
+        <br />
+        <a itemprop="telephone"
+           href="tel:6172493715">
+          <i class="fa fa-phone-square"
+             aria-hidden="true">
+          </i>&nbsp;(617) 249-3715</a>
 
-    <a href="/directions"
-       itemprop="address"
-       itemscope
-       itemtype="http://schema.org/PostalAddress">
-      <strong itemprop="name">Shimmytown</strong>
-      <span class="footerdivider hidden-xs">&#9679;</span>
-      <br class="visible-xs" />
-      <span itemprop="streetAddress">2424 Mariposa St.</span>,
-      <span itemprop="addressLocality">San Francisco</span>, <span itemprop="addressRegion">CA</span>
-      <span itemprop="postalCode">94110</span>
-    </a>
-    <br />
-    <a itemprop="telephone"
-       href="tel:6172493715">
-      <i class="fa fa-phone-square"
-         aria-hidden="true">
-      </i>&nbsp;(617) 249-3715</a>
-    <span class="footerdivider hidden-xs">&#9679;</span>
-    <br class="visible-xs" />
-    <a itemprop="email"
-       href="mailto:info@shimmytown.com">
-      <i class="fa fa-envelope"
-         aria-hidden="true">
-      </i>&nbsp;info@shimmytown.com</a>
-    <br />
-    <br />
-    <link itemprop="url"
-          href="{{ site_root }}">
-    <ul style="text-align: center;">
-      <li style="display: inline-block; padding: 0 1em;">
-        <a itemprop="sameAs"
-           href="https://www.facebook.com/shimmytown/"
-           title="Shimmytown Hop on Facebook">
-          <i class="fa fa-facebook-square fa-2x">
-          </i>
-        </a>
-      </li>
-      <li style="display: inline-block; padding: 0 1em;">
-        <a itemprop="sameAs"
-           href="https://www.yelp.com/biz/shimmytown-san-francisco?osq=swing+dancing"
-           title="Shimmytown on Yelp">
-          <i class="fa fa-yelp fa-2x">
-          </i>
-        </a>
-      </li>
-      <li style="display: inline-block; padding: 0 1em;">
-        <a itemprop="sameAs"
-           href="https://www.instagram.com/shimmytownproductions/"
-           title="Shimmytown on Instagram">
-          <i class="fa fa-instagram fa-2x">
-          </i>
-        </a>
-      </li>
-      {% url 'news_feed' as news_feed_url %}
-      {% if news_feed_url %}
-        <li style="display: inline-block; padding: 0 1em;">
-          <a href="{{ news_feed_url }}"
-             title="Shimmytown News Feed (RSS)">
-            <i class="fa fa-rss-square fa-2x">
-            </i>
-          </a>
-        </li>
-      {% endif %}
-      <li style="display: inline-block; padding: 0 1em;">
-        <a href="{% url 'calendarFeed' %}"
-           title="Shimmytown Classes/Events Feed (iCal)">
-          <i class="fa fa-calendar fa-2x">
-          </i>
-        </a>
-      </li>
-    </ul>
+        <br class="visible-xs" />
+        <a itemprop="email"
+           href="mailto:info@shimmytown.com">
+          <i class="fa fa-envelope"
+             aria-hidden="true">
+          </i>&nbsp;info@shimmytown.com</a>
+        <br />
+        <br />
+        <link itemprop="url"
+              href="{{ site_root }}">
+      </div>
+      <div class="col-md-5 align-self-center pull-right">
+        <ul style="text-align: center;">
+          <li style="display: inline-block; padding: 0 1em;">
+            <a itemprop="sameAs"
+               href="https://www.facebook.com/shimmytown/"
+               title="Shimmytown Hop on Facebook">
+              <i class="fa fa-facebook-square fa-2x">
+              </i>
+            </a>
+          </li>
+          <li style="display: inline-block; padding: 0 1em;">
+            <a itemprop="sameAs"
+               href="https://www.yelp.com/biz/shimmytown-san-francisco?osq=swing+dancing"
+               title="Shimmytown on Yelp">
+              <i class="fa fa-yelp fa-2x">
+              </i>
+            </a>
+          </li>
+          <li style="display: inline-block; padding: 0 1em;">
+            <a itemprop="sameAs"
+               href="https://www.instagram.com/shimmytownproductions/"
+               title="Shimmytown on Instagram">
+              <i class="fa fa-instagram fa-2x">
+              </i>
+            </a>
+          </li>
+          {#          {% url 'news_feed' as news_feed_url %}#}
+          {#          {% if news_feed_url %}#}
+          {#            <li style="display: inline-block; padding: 0 1em;">#}
+          {#              <a href="{{ news_feed_url }}"#}
+          {#                 title="Shimmytown News Feed (RSS)">#}
+          {#                <i class="fa fa-rss-square fa-2x">#}
+          {#                </i>#}
+          {#              </a>#}
+          {#            </li>#}
+          {#          {% endif %}#}
+          {#          <li style="display: inline-block; padding: 0 1em;">#}
+          {#            <a href="{% url 'calendarFeed' %}"#}
+          {#               title="Shimmytown Classes/Events Feed (iCal)">#}
+          {#              <i class="fa fa-calendar fa-2x">#}
+          {#              </i>#}
+          {#            </a>#}
+          {#          </li>#}
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
+</footer>

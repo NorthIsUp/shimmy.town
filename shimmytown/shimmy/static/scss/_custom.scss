@@ -1,0 +1,62 @@
+// Colors
+//
+// Grayscale and brand colors for use across Bootstrap.
+$brand-red:             #E70930;
+$brand-pink:            #EA5978;
+$brand-blue:            #0896BC;
+$brand-purple:          #6C69E0;
+$brand-yellow:          #F2AB0C;
+$brand-dark-purple:     #360032;
+
+// Start with assigning color names to specific hex values.
+$white:  #fff !default;
+$black:  #000 !default;
+$red:    #d9534f !default;
+$orange: #f0ad4e !default;
+$yellow: #ffd500 !default;
+$green:  #5cb85c !default;
+$blue:   #0275d8 !default;
+$teal:   #5bc0de !default;
+$pink:   #ff5b77 !default;
+$purple: #613d7c !default;
+
+// Create grayscale
+$gray-dark:                 #292b2c !default;
+$gray:                      #464a4c !default;
+$gray-light:                #636c72 !default;
+$gray-lighter:              #eceeef !default;
+$gray-lightest:             #f7f7f9 !default;
+
+// Reassign color vars to semantic color scheme
+$brand-primary:             $blue !default;
+$brand-success:             $green !default;
+$brand-info:                $teal !default;
+$brand-warning:             $orange !default;
+$brand-danger:              $red !default;
+$brand-inverse:             $gray-dark !default;
+
+// Links
+//
+// Style anchor elements.
+$link-color:            $brand-primary !default;
+$link-decoration:       none !default;
+$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+
+// ----------------------- not bootstrap specific
+
+.fg-white {color: white; }
+.bg-brand-red {background-color: $brand-red;}
+.bg-brand-pink {background-color: $brand-pink;}
+.bg-brand-blue {background-color: $brand-blue;}
+.bg-brand-purple {background-color: $brand-purple;}
+.bg-brand-yellow {background-color: $brand-yellow;}
+.bg-brand-dark-purple {background-color: $brand-dark-purple;}
+
+
+@mixin brand-font {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
