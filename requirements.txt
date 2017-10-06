@@ -1,5 +1,6 @@
 # django-danceschool
--e git+https://github.com/django-danceschool/django-danceschool.git#egg=danceschool
+# -e git+https://github.com/django-danceschool/django-danceschool.git#egg=danceschool
+-e git+https://github.com/northisup/django-danceschool.git@fix-69#egg=danceschool
 
 autoflake
 boto
