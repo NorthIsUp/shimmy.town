@@ -35,6 +35,7 @@ urlpatterns += [
     # Now, include default app URLs
     url(r'^', include('danceschool.urls')),
     url(r'^', include('cms.urls')),
+    url(r'^', include('djangocms_forms.urls')),
 ]
 
 if settings.DEBUG:
