@@ -24,7 +24,9 @@ def set_environment_variables():
     logger = getLogger()
     try:
         import dotenv
-        with open('.env') as dot_env:
+        from path import Path
+
+        with open(Path(__file__).dirname().abspath() / '.env') as dot_env:
             env = dotenv.parse_dotenv(dot_env.read())
 
             # log any updates to the environment
