@@ -23,5 +23,8 @@
         "heroku-postgresql"
       ]
     }
+  },
+  "scripts": {
+    "postdeploy": "python shimmytown/manage.py migrate --noinput"
   }
 }
