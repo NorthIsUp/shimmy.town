@@ -23,6 +23,7 @@ def env_or(envvars, default, cast=str, **options):
 
     if cast is bool:
         cast = lambda x: bool(int(x))  # flake8: noqa
+        cast.__name__ = 'bool'
     elif cast in (list, tuple):
         _cast = cast
         def cast(x):
@@ -46,7 +47,12 @@ def env_or(envvars, default, cast=str, **options):
         default
     )
 
-    return cast(var) if var is not None else None
+    value = cast(var) if var is not None else None
+
+    if globals().get('DEBUG'):
+        log_setting(envvars[0], '%-6s - %s' % (cast.__name__, value))
+
+    return value
 
 
 def install_caps(g, l):
