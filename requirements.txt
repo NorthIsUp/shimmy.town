@@ -10,6 +10,7 @@ django-storages
 gunicorn
 isort
 libsass
+mailsnake
 path.py
 psycopg2
 sendgrid-django
