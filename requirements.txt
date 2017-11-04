@@ -20,3 +20,5 @@ django-debug-toolbar
 -e git+https://github.com/divio/django-cms.git@8fabb5c3ef8b9283b535ea1b76f029c51d3e9c29#egg=django-cms
 dj-redis-url
 django_managepy_anywhere
+
+django-dynamic-preferences<1.4
