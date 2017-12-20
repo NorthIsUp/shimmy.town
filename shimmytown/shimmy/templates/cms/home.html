@@ -93,6 +93,44 @@ Shimmytown offers Lindy Hop, Swing Dance, Balboa, and Charleston classes in San 
     <!-- End Facebook Pixel Code -->
   {% endaddtoblock %}
 
+  {# Revoice Code#}
+  {% addtoblock "js" %}
+
+    <!-- Start of Async Revoice Code -->
+    <script>
+        window.revoiceSettings = {
+        handler: 'shimmytown',
+        page_id: '958731394231268',
+        created_at: '1513794110'
+    };
+    (function() {
+        var revoice = window.Revoice;
+        if (typeof revoice === "function") {
+            revoice('init');
+            revoice('update', revoiceSettings);
+        } else {
+
+            function load_revoice_script() {
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.async = true;
+                script.src = 'https://revoice.me/newrevoice/js/revoice-frame.js';
+                var scriptContent = document.getElementsByTagName('script')[0];
+                scriptContent.parentNode.insertBefore(script, scriptContent);
+            }
+
+            if (window.attachEvent){ 
+                window.attachEvent('onload', load_revoice_script); 
+            } 
+            else{ 
+                window.addEventListener('load', load_revoice_script, false); 
+            }
+        }
+    })()
+    </script>
+    <!-- End of Async Revoice Code -->
+  {% endaddtoblock %}
+
   {# Fitvids code (to ensure Youtube videos always fit) #}
   {% addtoblock "js" %}
     <script type="text/javascript" src="{% static 'fitvids/jquery.fitvids.js' %}"></script>
